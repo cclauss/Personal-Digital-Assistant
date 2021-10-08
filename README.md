@@ -2,7 +2,9 @@
 
 ### Install on Linux
 $ `sudo apt update`
+
 $ `sudo apt install espeak ffmpeg libespeak1 portaudio19-dev`
+
 $ `pip install -r requirements.txt`
 
 ### Install on macOS
@@ -19,4 +21,3 @@ $ `claussoft_pda/claussoft_pda.py`
 * time
 * date
 * hello
-* 
