@@ -90,7 +90,7 @@ class PDA:
         }
         for command, method in commands.items():
             if command in words:
-                return method()  # ztype: ignore[
+                return method()  # type: ignore[operator]
         return ""
 
     def run_loop(self) -> None:
