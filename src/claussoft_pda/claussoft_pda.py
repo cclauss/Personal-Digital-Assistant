@@ -16,7 +16,8 @@ from pyjokes import get_joke
 
 def init_text_to_speech() -> pyttsx3.Engine:
     driver = {"Darwin": "nsss", "Windows": "sapi5"}.get(platform.system(), "espeak")
-    engine = pyttsx3.init(driver)
+    driver = driver or ""
+    engine = pyttsx3.init()
     voices = engine.getProperty("voices")
     engine.setProperty("voice", voices[0].id)
     return engine
