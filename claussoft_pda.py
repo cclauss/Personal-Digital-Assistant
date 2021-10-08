@@ -7,7 +7,7 @@ from datetime import datetime
 from getpass import getuser
 
 import pyttsx3
-import speech_recognition as sr
+import speech_recognition
 import wikipedia
 from pyjokes import get_joke
 
@@ -26,6 +26,8 @@ class PDA(object):
         if self.username == "cclauss":
             self.username = "Christian"
         print(self.username)
+        self.speech_recognizer = speech_recognition.Recognizer()
+        self.speech_recognizer.pause_threshold = 0.5
         self.text_to_speech_engine = init_text_to_speech()
         self.print_and_say()
 
@@ -38,15 +40,27 @@ class PDA(object):
             time_of_day = "Afternoon" if hour < 18 else "Evening"
         return f"Good {time_of_day}, {self.username}"
 
-    def say(self, msg: str = "") -> None:
+    def listen() -> str:
+        with speech_recognition.Microphone() as source:
+            print("Listening....")
+            return self.speech_recognizer.listen(source)
+    
+    def say(self, msg: str = "") -> str:
         msg = msg or self.greeting
         self.text_to_speech_engine.say(msg)
         self.text_to_speech_engine.runAndWait()
+        return msg
 
-    def print_and_say(self, msg: str = "") -> None:
+    def print_and_say(self, msg: str = "") -> str:
         msg = msg or self.greeting
         print(msg)
-        self.say(msg)
+        return self.say(msg)
+    
+    def joke(self) -> str:
+        return print_and_say(get_joke())
+
+    def wikipedia(self, topic: str = "") -> str:
+        return self.print_and_say(wikipedia.summary(topic, sentences=2))
 
 
 if __name__ == "__main__":
