@@ -50,3 +50,8 @@ repos:
   #  rev: 6.2.5
   #  hooks:
   #    - id: pytest
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v2.29.0
+    hooks:
+      - id: pyupgrade
+        args: [--py37-plus]
