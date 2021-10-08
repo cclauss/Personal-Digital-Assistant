@@ -22,7 +22,7 @@ def init_text_to_speech() -> pyttsx3.Engine:
     return engine
 
 
-class PDA(object):
+class PDA:
     def __init__(self):
         self.username = getuser()
         if self.username == "cclauss":
