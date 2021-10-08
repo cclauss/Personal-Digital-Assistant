@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import platform
 from datetime import datetime
 from getpass import getuser
 from string import digits
@@ -15,8 +14,6 @@ from pyjokes import get_joke
 
 
 def init_text_to_speech() -> pyttsx3.Engine:
-    driver = {"Darwin": "nsss", "Windows": "sapi5"}.get(platform.system(), "espeak")
-    driver = driver or ""
     engine = pyttsx3.init()
     voices = engine.getProperty("voices")
     engine.setProperty("voice", voices[0].id)
@@ -45,7 +42,7 @@ class PDA:
 
     def listen(self) -> str:
         with speech_recognition.Microphone() as source:
-            print("Listening....")
+            print(f"Listening... {self.speech_recognizer.pause_threshold}")
             audio = self.speech_recognizer.listen(source)
             return self.speech_recognizer.recognize_google(audio, language="en-us")
 
