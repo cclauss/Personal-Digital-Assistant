@@ -60,10 +60,10 @@ class PDA(object):
         return self.say(msg)
 
     def date(self) -> str:
-        return self.print_and_say(f"{datetime.datetime.now():%A, %B %d, %Y}")
+        return self.print_and_say(f"{datetime.now():%A, %B %d, %Y}")
 
     def time(self) -> str:
-        return self.print_and_say(f"{datetime.datetime.now():%I %M %p}")
+        return self.print_and_say(f"{datetime.now():%I %M %p}")
 
     def joke(self) -> str:
         return self.print_and_say(get_joke())
@@ -86,6 +86,7 @@ class PDA(object):
             "joke": self.joke,
             "time": self.time,
             "date": self.date,
+            "hello": self.print_and_say,
         }
         for command, method in commands.items():
             if command in words:
