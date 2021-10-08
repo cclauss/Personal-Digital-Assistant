@@ -1,4 +1,4 @@
-from src.claussoft_pda.claussoft_pda import PDA
+from claussoft_pda.claussoft_pda import PDA
 
 
 def test_greeting() -> None:
