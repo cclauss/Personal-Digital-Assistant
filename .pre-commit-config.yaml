@@ -38,6 +38,6 @@ repos:
         # args as follows:
         # args: [--no-strict-optional, --ignore-missing-imports]
   - repo: https://github.com/pytest-dev/pytest
-    rev: 6.1.0
+    rev: 6.2.5
     hooks:
       - id: pytest
