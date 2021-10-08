@@ -92,19 +92,19 @@ class PDA(object):
                 return method()
         return ""
 
-        def run_loop(self) -> None:
-            while True:
-                user_request = self.listen()
-                if user_request:
-                    print(f"You said: {user_request}")
-                    words = user_request.lower().split()
-                    if "exit" in words or "quit" in words:
-                        return
-                    if user_request.lower().startswith("wikipedia"):
-                        self.wikipedia(" ".join(words[1:]))
-                    elif not self.try_commands(user_request):
-                        self.print_and_say("Sorry, I do not understand.  Please try again.")
-                sleep(1)
+    def run_loop(self) -> None:
+        while True:
+            user_request = self.listen()
+            if user_request:
+                print(f"You said: {user_request}")
+                words = user_request.lower().split()
+                if "exit" in words or "quit" in words:
+                    return
+                if user_request.lower().startswith("wikipedia"):
+                    self.wikipedia(" ".join(words[1:]))
+                elif not self.try_commands(user_request):
+                    self.print_and_say("Sorry, I do not understand.  Please try again.")
+            sleep(1)
 
 
 if __name__ == "__main__":
