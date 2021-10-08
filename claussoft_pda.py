@@ -28,7 +28,7 @@ class PDA(object):
         print(self.username)
         self.text_to_speech_engine = init_text_to_speech()
         self.print_and_say()
-    
+
     @property
     def greeting(self) -> str:
         hour = datetime.now().hour
@@ -37,13 +37,13 @@ class PDA(object):
         else:
             time_of_day = "Afternoon" if hour < 18 else "Evening"
         return f"Good {time_of_day}, {self.username}"
-    
-    def say(self, msg: str="") -> None:
+
+    def say(self, msg: str = "") -> None:
         msg = msg or self.greeting
         self.text_to_speech_engine.say(msg)
         self.text_to_speech_engine.runAndWait()
-    
-    def print_and_say(self, msg: str="") -> None:
+
+    def print_and_say(self, msg: str = "") -> None:
         msg = msg or self.greeting
         print(msg)
         self.say(msg)
