@@ -10,7 +10,7 @@ jobs:
       - uses: pre-commit/action@v2.0.3
       - run: pip install bandit mypy pytest pyupgrade safety
       - run: bandit --recursive --skip B101,B307 .
-      - run: sudo apt-get install portaudio19-dev
+      - run: sudo apt-get install libspeak portaudio19-dev
       - run: pip install -r requirements.txt
       #- run: mkdir --parents --verbose .mypy_cache
       - run: mypy --ignore-missing-imports --install-types --non-interactive --show-error-codes .
