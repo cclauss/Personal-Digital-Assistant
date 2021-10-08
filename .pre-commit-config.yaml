@@ -1,23 +1,23 @@
 repos:
   - repo: https://github.com/python/black
-    rev: stable
+    rev: 21.9b0
     hooks:
       - id: black
   - repo: https://github.com/codespell-project/codespell
-    rev: v1.17.1
+    rev: v2.1.0
     hooks:
       - id: codespell
         args:
           - --quiet-level=2
   - repo: https://gitlab.com/pycqa/flake8
-    rev: 3.8.3
+    rev: 3.9.2
     hooks:
       - id: flake8
         args:
           - --max-complexity=10
           - --max-line-length=88
   - repo: https://github.com/timothycrosley/isort
-    rev: 5.5.3
+    rev: 5.9.3
     hooks:
       - id: isort
         args:
