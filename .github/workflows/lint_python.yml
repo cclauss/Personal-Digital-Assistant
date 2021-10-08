@@ -13,6 +13,6 @@ jobs:
           sudo apt update
           sudo apt install espeak ffmpeg libespeak1 portaudio19-dev
       - run: pip install -r requirements.txt
-      - run: mypy --install-types --non-interactive --show-error-codes .
+      - run: mypy --ignore-missing-imports --install-types --non-interactive --show-error-codes .
       - run: pytest --doctest-modules .
       - run: safety check
