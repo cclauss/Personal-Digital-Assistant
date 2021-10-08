@@ -5,6 +5,7 @@ from __future__ import annotations
 import platform
 from datetime import datetime
 from getpass import getuser
+from string import digits
 from time import sleep
 
 import pyttsx3
@@ -30,7 +31,6 @@ class PDA(object):
         self.speech_recognizer = speech_recognition.Recognizer()
         self.speech_recognizer.pause_threshold = 0.5
         self.text_to_speech_engine = init_text_to_speech()
-        self.user_wants_to_quit = False
         self.print_and_say()
 
     @property
@@ -42,10 +42,11 @@ class PDA(object):
             time_of_day = "Afternoon" if hour < 18 else "Evening"
         return f"Good {time_of_day}, {self.username}"
 
-    def listen() -> str:
+    def listen(self) -> str:
         with speech_recognition.Microphone() as source:
             print("Listening....")
-            return self.speech_recognizer.listen(source)
+            audio = self.speech_recognizer.listen(source)
+            return self.speech_recognizer.recognize_google(audio, language="en-us")
 
     def say(self, msg: str = "") -> str:
         msg = msg or self.greeting
@@ -58,21 +59,53 @@ class PDA(object):
         print(msg)
         return self.say(msg)
 
+    def date(self) -> str:
+        return self.print_and_say(f"{datetime.datetime.now():%A, %B %d, %Y}")
+
+    def time(self) -> str:
+        return self.print_and_say(f"{datetime.datetime.now():%I %M %p}")
+
     def joke(self) -> str:
-        return print_and_say(get_joke())
+        return self.print_and_say(get_joke())
+
+    def chuck_norris_joke(self) -> str:
+        return self.print_and_say(get_joke(category="chuck"))
 
     def wikipedia(self, topic: str = "") -> str:
-        return self.print_and_say(wikipedia.summary(topic, sentences=2))
+        return self.print_and_say(wikipedia.summary(topic or "PDA", sentences=2))
+    
+    def try_commands(self, user_request) -> str:
+        # Is user_request a math problem to be solved?
+        if all(char in f"{digits} +-*/" for char in user_request):
+            return self.print_and_say(str(eval(user_request)))
+
+        words = user_request.lower().split()
+        commands = {
+            "chuck": self.chuck_norris_joke,
+            "norris": self.chuck_norris_joke,
+            "joke": self.joke,
+            "time": self.time,
+            "date": self.date,
+        }
+        for command, method in commands.items():
+            if command in words:
+                return method()
+        return ""
+
+        def run_loop(self) -> None:
+            while True:
+                user_request = self.listen()
+                if user_request:
+                    print(f"You said: {user_request}")
+                    words = user_request.lower().split()
+                    if "exit" in words or "quit" in words:
+                        return
+                    if user_request.lower().startswith("wikipedia"):
+                        self.wikipedia(" ".join(words[1:]))
+                    elif not self.try_commands(user_request):
+                        self.print_and_say("Sorry, I do not understand.  Please try again.")
+                sleep(1)
 
 
 if __name__ == "__main__":
-    pda = PDA()
-    while not pda.user_wants_to_quit:
-        user_request = pda.listen()
-        if user_request:
-            print(f"You said: {user_request}")
-            if "quit" in user_request.lower().split():
-                pda.user_wants_to_quit = True
-            else:
-                pda.joke()
-        sleep(2)
+    PDA().run_loop()
