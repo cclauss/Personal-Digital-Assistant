@@ -5,6 +5,7 @@ from __future__ import annotations
 import platform
 from datetime import datetime
 from getpass import getuser
+from time import sleep
 
 import pyttsx3
 import speech_recognition
@@ -29,6 +30,7 @@ class PDA(object):
         self.speech_recognizer = speech_recognition.Recognizer()
         self.speech_recognizer.pause_threshold = 0.5
         self.text_to_speech_engine = init_text_to_speech()
+        self.user_wants_to_quit = False
         self.print_and_say()
 
     @property
@@ -64,4 +66,13 @@ class PDA(object):
 
 
 if __name__ == "__main__":
-    PDA()
+    pda = PDA()
+    while not pda.user_wants_to_quit:
+        user_request = pda.listen()
+        if user_request:
+            print(f"You said: {user_request}")
+            if "quit" in user_request.lower().split():
+                pda.user_wants_to_quit = True
+            else:
+                pda.joke()
+        sleep(2)
