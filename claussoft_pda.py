@@ -73,7 +73,7 @@ class PDA(object):
 
     def wikipedia(self, topic: str = "") -> str:
         return self.print_and_say(wikipedia.summary(topic or "PDA", sentences=2))
-    
+
     def try_commands(self, user_request) -> str:
         # Is user_request a math problem to be solved?
         if all(char in f"{digits} +-*/" for char in user_request):
