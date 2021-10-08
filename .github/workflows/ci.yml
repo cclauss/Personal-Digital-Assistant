@@ -1,17 +1,21 @@
-name: lint_python
+name: ci
 on: [pull_request, push]
 jobs:
-  lint_python:
+  pre_commit:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
       - run: pip install --upgrade pip wheel
       - uses: pre-commit/action@v2.0.3
+  mypy_and_pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - run: pip install --upgrade pip wheel
       - run: pip install mypy pytest safety
-      - run: |
-          sudo apt update
-          sudo apt install espeak ffmpeg libespeak1 portaudio19-dev
+      - run: sudo apt install espeak ffmpeg libespeak1 portaudio19-dev
       - run: pip install -r requirements.txt
       - run: mypy --ignore-missing-imports --install-types --non-interactive --show-error-codes .
       - run: pytest --doctest-modules .
