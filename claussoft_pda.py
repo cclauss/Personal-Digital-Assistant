@@ -44,7 +44,7 @@ class PDA(object):
         with speech_recognition.Microphone() as source:
             print("Listening....")
             return self.speech_recognizer.listen(source)
-    
+
     def say(self, msg: str = "") -> str:
         msg = msg or self.greeting
         self.text_to_speech_engine.say(msg)
@@ -55,7 +55,7 @@ class PDA(object):
         msg = msg or self.greeting
         print(msg)
         return self.say(msg)
-    
+
     def joke(self) -> str:
         return print_and_say(get_joke())
 
