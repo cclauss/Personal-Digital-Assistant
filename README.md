@@ -14,7 +14,7 @@ $ `brew install portaudio`
 $ `claussoft_pda/claussoft_pda.py`
 
 * exit or quit
-* 2 + 3 / 4 * 5
+* two plus three over four times five --> 2 + 3 / 4 * 5
 * wikipedia
 * chuck or norris
 * joke
