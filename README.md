@@ -9,9 +9,9 @@ $ `sudo apt install espeak ffmpeg libespeak1 portaudio19-dev`
 $ `brew install portaudio`
 
 ### Set up Python virtual environment on either Linux or macOS
-$ `python3 -m venv venv`
+$ `python3 -m venv .venv`
 
-$ `source venv/bin/activate`
+$ `source .venv/bin/activate`
 
 $ `pip install -r requirements.txt`
 
