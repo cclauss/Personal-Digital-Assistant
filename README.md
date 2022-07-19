@@ -3,7 +3,7 @@
 ### Install on Linux
 $ `sudo apt update`
 
-$ `sudo apt install espeak ffmpeg libespeak1 portaudio19-dev`
+$ `sudo apt install espeak ffmpeg libespeak1 portaudio19-dev python3 python3-venv`
 
 ### Install on macOS
 $ `brew install portaudio`
