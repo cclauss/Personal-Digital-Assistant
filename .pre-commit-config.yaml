@@ -32,7 +32,7 @@ repos:
     rev: v0.0.254
     hooks:
       - id: ruff
-        args: [--select, B,E,F,I,S,SIM,UP,W, --target-version, py37]
+        args: [--select, "B,E,F,I,S,SIM,UP,W", --ignore, "S101", --target-version, py37]
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.0.1
     hooks:
