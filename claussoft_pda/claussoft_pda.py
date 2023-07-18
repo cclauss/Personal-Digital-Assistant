@@ -75,7 +75,7 @@ class PDA:
     def try_commands(self, user_request) -> str:
         # Is user_request a math problem to be solved?
         if all(char in f"{digits} +-*/" for char in user_request):
-            return self.print_and_say(str(eval(user_request)))
+            return self.print_and_say(str(eval(user_request)))  # noqa: S307
 
         words = user_request.lower().split()
         commands = {
