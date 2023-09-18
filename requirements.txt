@@ -1,5 +1,5 @@
 PyAudio==0.2.13
-pygame==2.5.1
+pygame==2.5.2
 pyjokes==0.6.0
 pyttsx3==2.90
 SpeechRecognition==3.10.0
