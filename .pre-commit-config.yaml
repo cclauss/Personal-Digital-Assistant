@@ -5,22 +5,26 @@ repos:
     -   id: check-yaml
     -   id: end-of-file-fixer
     -   id: trailing-whitespace
+
   - repo: https://github.com/MarcoGorelli/auto-walrus
     rev: v0.2.2
     hooks:
       - id: auto-walrus
+
   - repo: https://github.com/psf/black
-    rev: 23.11.0
+    rev: 23.12.1
     hooks:
       - id: black
+
   - repo: https://github.com/codespell-project/codespell
     rev: v2.2.6
     hooks:
       - id: codespell
         args:
           - --quiet-level=2
+
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.1.7
+    rev: v0.1.14
     hooks:
       - id: ruff
-        args: [--select, "B,E,F,I,S,SIM,UP,W", --ignore, "S101", --target-version, py37]
+        args: [--select, "B,E,F,I,S,SIM,UP,W", --ignore, "S101", --target-version, py38]
