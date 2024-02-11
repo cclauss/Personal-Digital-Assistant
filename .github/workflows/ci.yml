@@ -9,7 +9,7 @@ jobs:
         with:
           python-version: 3.x
       - run: pip install --upgrade pip wheel
-      - uses: pre-commit/action@v3.0.0
+      - uses: pre-commit/action@v3.0.1
   mypy_and_pytest:
     runs-on: ubuntu-latest
     steps:
