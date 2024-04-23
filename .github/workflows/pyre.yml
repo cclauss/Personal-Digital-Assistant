@@ -42,7 +42,7 @@ jobs:
       - run: sudo apt-get update ; sudo apt install espeak ffmpeg libespeak1 portaudio19-dev
       - run: pip install --upgrade pip ; pip install -r requirements.txt
       - name: Run Pyre
-        uses: facebook/pyre-action@60697a7858f7cc8470d8cc494a3cf2ad6b06560d
+        uses: facebook/pyre-action@v0
         with:
           # To customize these inputs:
           # See https://github.com/facebook/pyre-action#inputs
