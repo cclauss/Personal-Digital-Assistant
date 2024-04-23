@@ -49,3 +49,5 @@ jobs:
           # See https://github.com/facebook/pyre-action#inputs
           repo-directory: './'
           requirements-path: 'requirements.txt'
+      - run: pip install pyre-check
+      - run: pyre --noninteractive check
