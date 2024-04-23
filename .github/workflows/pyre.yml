@@ -48,3 +48,5 @@ jobs:
           # See https://github.com/facebook/pyre-action#inputs
           repo-directory: './'
           requirements-path: 'requirements.txt'
+      - if: always()
+        run: echo "facebook/pyre-action upload fails!"
