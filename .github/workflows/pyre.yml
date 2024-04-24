@@ -43,7 +43,7 @@ jobs:
       - run: pip install --upgrade pip ; pip install -r requirements.txt
       - continue-on-error: true  # facebook/pyre-action upload always fails!!
         name: Run Pyre
-        uses: facebook/pyre-action@v0.0.1
+        uses: facebook/pyre-action@v0.0.2
         with:
           # To customize these inputs:
           # See https://github.com/facebook/pyre-action#inputs
