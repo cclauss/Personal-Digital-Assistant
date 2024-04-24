@@ -41,13 +41,19 @@ jobs:
           python-version: 3.x
       - run: sudo apt-get update ; sudo apt install espeak ffmpeg libespeak1 portaudio19-dev
       - run: pip install --upgrade pip ; pip install -r requirements.txt
-      - continue-on-error: true  # facebook/pyre-action upload always fails!!
-        name: Run Pyre
+      # - continue-on-error: true  # facebook/pyre-action upload always fails!!
+      - name: Run Pyre
         uses: facebook/pyre-action@v0.0.2
         with:
           # To customize these inputs:
           # See https://github.com/facebook/pyre-action#inputs
           repo-directory: './'
           requirements-path: 'requirements.txt'
-      - run: pip install pyre-check
-      - run: pyre --noninteractive check
+      - name: Upload SARIF Results
+        if: always()
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: sarif.json
+
+      # - run: pip install pyre-check
+      # - run: pyre --noninteractive check
