@@ -41,10 +41,13 @@ jobs:
           python-version: 3.x
       - run: sudo apt-get update ; sudo apt install espeak ffmpeg libespeak1 portaudio19-dev
       - run: pip install --upgrade pip ; pip install -r requirements.txt
-      - name: Run Pyre
-        uses: facebook/pyre-action@60697a7858f7cc8470d8cc494a3cf2ad6b06560d
+      - continue-on-error: true  # facebook/pyre-action upload always fails!!
+        name: Run Pyre
+        uses: facebook/pyre-action@v0.0.1
         with:
           # To customize these inputs:
           # See https://github.com/facebook/pyre-action#inputs
           repo-directory: './'
           requirements-path: 'requirements.txt'
+      - run: pip install pyre-check
+      - run: pyre --noninteractive check
