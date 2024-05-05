@@ -1,6 +1,6 @@
-PyAudio==0.2.x
-pygame==2.5.x
-pyjokes==0.6.x
+PyAudio==0.2.14
+pygame==2.5.2
+pyjokes==0.6.0
 pyttsx3==2.90
-SpeechRecognition==3.10.x
-wikipedia==1.4x
+SpeechRecognition==3.10.4
+wikipedia==1.4.0
