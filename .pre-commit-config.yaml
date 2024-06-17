@@ -17,14 +17,14 @@ repos:
       - id: black
 
   - repo: https://github.com/codespell-project/codespell
-    rev: v2.2.6
+    rev: v2.3.0
     hooks:
       - id: codespell
         args:
           - --quiet-level=2
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.4.2
+    rev: v0.4.8
     hooks:
       - id: ruff
         args: [--select, "B,E,F,I,S,SIM,UP,W", --ignore, "S101", --target-version, py38]
