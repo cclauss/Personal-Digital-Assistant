@@ -1,0 +1,31 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+
+requires = [ "setuptools>=61.2" ]
+
+[project]
+name = "claussoft-pda"
+classifiers = [
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+dynamic = [ "version" ]
+
+dependencies = [
+  "pyaudio==0.2.14",
+  "pygame==2.6.1",
+  "pyjokes==0.8.3",
+  "pyttsx3==2.98",
+  "speechrecognition==3.11",
+  "wikipedia==1.4",
+]
+
+[tool.setuptools]
+include-package-data = false
+
+[tool.setuptools.packages]
+find = { namespaces = false }
