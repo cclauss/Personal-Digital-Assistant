@@ -20,7 +20,7 @@ dependencies = [
   "pygame==2.6.1",
   "pyjokes==0.8.3",
   "pyttsx3==2.98",
-  "speechrecognition==3.13.0",
+  "speechrecognition==3.14.0",
   "wikipedia==1.4",
 ]
 
