@@ -8,7 +8,12 @@ from string import digits
 from time import sleep
 
 import pyttsx3
-import speech_recognition
+try:
+    import speech_recognition
+except ModuleNotFoundError:
+    print("SpeechRecognition is not yet compatible with Python 3.13.")
+    speech_recognition = None
+    # exit(1)
 import wikipedia
 from pyjokes import get_joke
 
