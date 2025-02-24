@@ -26,7 +26,7 @@ repos:
           - --quiet-level=2
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.9.4
+    rev: v0.9.7
     hooks:
       - id: ruff
         args: [--select, "B,E,F,I,S,SIM,UP,W", --ignore, "S101", --target-version, py38]
