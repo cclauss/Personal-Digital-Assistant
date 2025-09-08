@@ -1,0 +1,6 @@
+{
+  "source_directories": ["claussoft_pda"],
+  "search_path": [
+    ".venv/lib/python3.11/site-packages"
+  ]
+}
