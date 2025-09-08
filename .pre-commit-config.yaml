@@ -34,5 +34,5 @@ repos:
         language: python
         entry: ty check
         pass_filenames: false
-        # args: [--python=.venv/]
+        args: [--python=python3]
         additional_dependencies: [ty]
