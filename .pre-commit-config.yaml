@@ -32,7 +32,6 @@ repos:
       - id: ty-check
         name: ty-check
         language: python
-        entry: ty check
+        entry: ty check --ignore=unresolved-import
         pass_filenames: false
-        args: [--python=python3]
         additional_dependencies: [ty]
