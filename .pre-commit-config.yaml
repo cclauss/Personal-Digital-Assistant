@@ -26,3 +26,13 @@ repos:
       - id: ruff-check
         args: [--select, "B,E,F,I,S,SIM,UP,W", --ignore, "S101", --target-version, py38]
       - id: ruff-format
+
+  - repo: local
+    hooks:
+      - id: ty-check
+        name: ty-check
+        language: python
+        entry: ty check
+        pass_filenames: false
+        args: [--python=.venv/]
+        additional_dependencies: [ty]
