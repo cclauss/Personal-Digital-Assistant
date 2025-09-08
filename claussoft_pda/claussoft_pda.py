@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+ # Try it out with the command:
+# uv run claussoft_pda/claussoft_pda.py
+
 # /// script
 # requires-python = ">=3.13"
 # dependencies = [
