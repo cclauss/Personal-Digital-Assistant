@@ -1,5 +1,17 @@
 #!/usr/bin/env python3
 
+# /// script
+# requires-python = ">=3.13"
+# dependencies = [
+#     "PyAudio",
+#     "pygame",
+#     "pyjokes",
+#     "pyttsx3",
+#     "SpeechRecognition",
+#     "wikipedia",
+# ]
+# ///
+
 from __future__ import annotations
 
 from datetime import datetime
