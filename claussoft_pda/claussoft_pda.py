@@ -11,6 +11,7 @@ import pyttsx3
 import speech_recognition
 import wikipedia
 from pyjokes import get_joke
+from pyttsx3.engine import Engine
 
 
 def init_text_to_speech() -> pyttsx3.Engine:
