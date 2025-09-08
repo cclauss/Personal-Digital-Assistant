@@ -13,11 +13,6 @@ repos:
     hooks:
       - id: auto-walrus
 
-  - repo: https://github.com/psf/black
-    rev: 25.1.0
-    hooks:
-      - id: black
-
   - repo: https://github.com/codespell-project/codespell
     rev: v2.4.1
     hooks:
@@ -28,5 +23,6 @@ repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.12.11
     hooks:
-      - id: ruff
+      - id: ruff-check
         args: [--select, "B,E,F,I,S,SIM,UP,W", --ignore, "S101", --target-version, py38]
+      - id: ruff-format
