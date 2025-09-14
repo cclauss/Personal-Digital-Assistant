@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
- # Try it out with the command:
+# Try it out with the command:
 # uv run claussoft_pda/claussoft_pda.py
 
 # /// script
