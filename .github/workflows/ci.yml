@@ -19,7 +19,10 @@ jobs:
           python-version: 3.x
       - run: pip install --upgrade pip setuptools wheel
       - run: pip install mypy pytest
-      - run: sudo apt-get update ; sudo apt install espeak ffmpeg libespeak1 portaudio19-dev
-      - run: pip install -r requirements.txt
+      - run: |
+          sudo apt-get update
+          sudo apt install espeak ffmpeg libfreetype6-dev libsdl2-dev libsdl1.2-dev libespeak1 portaudio19-dev
+      # - run: pip install -r requirements.txt
+      - run: pip install --editable .
       - run: mypy --ignore-missing-imports --install-types --non-interactive --show-error-codes .
       - run: pytest --doctest-modules .
