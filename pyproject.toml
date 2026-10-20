@@ -1,7 +1,7 @@
 [build-system]
 build-backend = "setuptools.build_meta"
 
-requires = [ "setuptools>=61.2" ]
+requires = [ "setuptools>=82.0.1" ]
 
 [project]
 name = "claussoft-pda"
@@ -20,7 +20,7 @@ dependencies = [
   "pygame==2.6.1",
   "pyjokes==0.8.3",
   "pyttsx3==2.99",
-  "speechrecognition==3.14.4",
+  "speechrecognition==3.16.0",
   "wikipedia==1.4",
 ]
 
