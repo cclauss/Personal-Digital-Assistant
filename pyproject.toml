@@ -7,17 +7,17 @@ requires = [ "setuptools>=82.0.1" ]
 name = "claussoft-pda"
 classifiers = [
   "Programming Language :: Python :: 3 :: Only",
-  "Programming Language :: Python :: 3.9",
-  "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Programming Language :: Python :: 3.15",
 ]
 dynamic = [ "version" ]
 
 dependencies = [
   "pyaudio==0.2.14",
-  "pygame==2.6.1",
+  "pygame-ce==2.5.8",
   "pyjokes==0.8.3",
   "pyttsx3==2.99",
   "speechrecognition==3.17.0",
