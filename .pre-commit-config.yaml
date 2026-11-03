@@ -27,11 +27,16 @@ repos:
         args: [--select, "B,E,F,I,S,SIM,UP,W", --ignore, "S101", --target-version, py38]
       - id: ruff-format
 
-  - repo: local
+  # - repo: local
+  #  hooks:
+  #    - id: ty-check
+  #      name: ty-check
+  #      language: python
+  #      entry: ty check --ignore=unresolved-import
+  #      pass_filenames: false
+  #      additional_dependencies: [ty]
+  - repo: https://github.com/astral-sh/ty-pre-commit
+    # ty version.
+    rev: v0.0.96
     hooks:
-      - id: ty-check
-        name: ty-check
-        language: python
-        entry: ty check --ignore=unresolved-import
-        pass_filenames: false
-        additional_dependencies: [ty]
+      - id: ty
