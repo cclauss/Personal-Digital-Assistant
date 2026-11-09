@@ -10,8 +10,8 @@ jobs:
           python-version: 3.x
       - run: |
           sudo apt update
-          sudo apt install libsdl1.2-dev
-      - run: pip install --upgrade pip wheel
+          sudo apt install portaudio19-dev
+      - run: pip install --upgrade pip
       - uses: pre-commit/action@v3.0.1
   mypy_and_pytest:
     runs-on: ubuntu-latest
@@ -20,7 +20,7 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: 3.x
-      - run: pip install --upgrade pip setuptools wheel
+      - run: pip install --upgrade pip setuptools
       - run: pip install mypy pytest
       - run: |
           sudo apt-get update
